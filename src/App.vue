@@ -1,7 +1,7 @@
 <script setup>
 
 
-import { ref } from 'vue'
+import { ref , computed} from 'vue'
 
 
 const header = ref('Shopping list app')
@@ -14,6 +14,7 @@ const items = ref([
 const newItem = ref("")
 const NewItemHighPriority = ref(false)
 const isPriority = ref(false)
+const reversedItems=computed( ()=>[...items.value].reverse())
 const saveItem =() =>{
   items.value.push({ id: items.value.length+1, label: newItem.value, isPriority: NewItemHighPriority.value})
   newItem.value = ""
@@ -27,6 +28,9 @@ const doEdit=(e) =>{
 const tooglePurchased=(item)=>{
   item.purchased= !item.purchased
 }
+const characterCount= computed( ()=>{
+  return newItem.value.length
+})
 </script>
 
 <template>
@@ -58,14 +62,17 @@ const tooglePurchased=(item)=>{
         Save Item
       </button>
   </form>
+  <p class="counter">
+    Character count: {{characterCount}}/200
+  </p>
   <ul> 
     <li 
-      v-for="({id, label,purchased, isPriority}, index) in items" 
+      v-for="({id, label,purchased, isPriority}, index) in reversedItems" 
       :key="id"
       @click="tooglePurchased(items[index])" 
       class=  "static-class"
       :class="{strikeout:purchased, priority: isPriority}">
-      {{index+1}}. {{label}}
+       - {{label}}
     </li>
  </ul>
  <p v-if="items.length === 0">No items in the list</p>
