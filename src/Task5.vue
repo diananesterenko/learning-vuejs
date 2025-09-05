@@ -1,0 +1,385 @@
+<template>
+      <div class="container">
+    <form class="card" @submit.prevent="handleSubmit">
+      <h1>Vue developer application!</h1>
+      <Comp1Task5 
+        v-model="name" 
+        :error="errors.name" 
+        label="What is your name?" 
+        placeholder="Enter your full name"/>
+
+      <div class="form-control">
+        <label for="age">Choose your age</label>
+        <input 
+            v-model.number="age"
+            type="number" 
+            id="age" 
+            
+            max="70">
+      </div>
+
+      <div class="form-control">
+        <label for="city">Your city</label>
+        <select id="city" v-model="city">
+          <option value="sthlm">Stockholm</option>
+          <option value="mlm">Malmo</option>
+          <option value="ups">Upsala</option>
+          <option selected value="gtb">Goteborg</option>
+        </select>
+      </div>
+
+      <div class="form-checkbox">
+        <span class="label">Ready to move to Tokyo?</span>
+        <div class="checkbox">
+          <label><input 
+                    v-model="readyToMove"
+                    value="yes"
+                    type="radio" 
+                    name="trip"/> Yes</label>
+        </div>
+
+        <div class="checkbox">
+          <label><input 
+                    v-model="readyToMove"
+                    value="no"
+                    type="radio" 
+                    name="trip"/> No</label>
+        </div>
+      </div>
+
+      <div class="form-checkbox">
+        <span class="label">What do you know about Vue?</span>
+        <div class="checkbox">
+          <label><input 
+                    v-model="skills"
+                    type="checkbox"
+                    name="skills"
+                    value="vuex"/> Vuex</label>
+        </div>
+        <div class="checkbox">
+          <label><input 
+                    v-model="skills"
+                    type="checkbox"
+                    name="skills"
+                    value="vue-cli"/> Vue CLI</label>
+        </div>
+        <div class="checkbox">
+          <label><input 
+                    v-model="skills"
+                    type="checkbox"
+                    name="skills"
+                    value="vue-router"/> Vue Router</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn primary">Submit</button>
+    </form>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import Comp1Task5 from './components/Task5/Comp1Task5.vue'
+const name = ref('')
+const age = ref(20)
+const city = ref('sthlm')
+const readyToMove = ref(null)
+const skills=ref([])
+const errors=ref({
+    name: null,
+    age: null,
+    city: null,
+    readyToMove: null,
+    skills: null    
+})
+const handleSubmit = () => {
+    if(formIsValid()) {
+        console.log(name.value, age.value, city.value, readyToMove.value, skills.value);
+    } else {
+        console.log('Form is not valid')
+    }
+  
+}
+const formIsValid = () => {
+    let isValid= true
+    if(name.value.length === 0) {
+        errors.value.name = 'Name is required'
+        isValid = false
+    } else {
+        errors.value.name = null
+    }
+    return isValid
+}
+</script>
+
+<style >
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, Roboto, Oxygen, Fira Sans, Helvetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    color: #2c3e50;
+    background: #2c3e50;
+}
+
+hr {
+    margin: 1rem 0;
+}
+
+strong,
+.bold {
+    font-weight: 500;
+}
+
+ol,
+p,
+ul {
+    line-height: 1.7;
+}
+
+a {
+    color: #3eaf7c;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.65rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #eaecef;
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+/*.primary {*/
+/*    color: #42b983;*/
+/*}*/
+
+/*.danger {*/
+/*    color: #e53935;*/
+/*}*/
+
+.btn {
+    color: #42b983;
+    position: relative;
+    place-content: center;
+    place-items: center;
+    width: fit-content;
+    border-radius: 99px;
+    letter-spacing: 0.05em;
+    border: 1px solid #42b983;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-right: 10px;
+    padding: 0.5rem 1.5rem;
+    white-space: nowrap;
+    font-weight: 700;
+    outline: none;
+    background: #fff;
+    transition: all 0.22s;
+}
+
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.btn:active {
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.btn.primary {
+    background: #42b983;
+    color: #fff;
+}
+
+.btn.danger {
+    background: #e53935;
+    color: #fff;
+    border-color: #e53935;
+}
+
+.btn.warning {
+    background: #c25205;
+    color: #fff;
+    border-color: #c25205;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.pt-2 {
+    padding-top: 2rem;
+}
+
+.pt-1 {
+    padding-top: 1rem;
+}
+
+.pt-5 {
+    padding-top: 5rem;
+}
+
+.form-control {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.form-control input,
+.form-control select {
+    margin: 0;
+    outline: none;
+    border: 2px solid #ccc;
+    display: block;
+    width: 100%;
+    color: #2c3e50;
+    padding: 0.5rem 1.5rem;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+.form-checkbox {
+    margin-bottom: 1rem;
+}
+
+.form-checkbox .label {
+    display: block;
+    margin: 0 0 0.3rem 0.3rem;
+    font-weight: 500;
+}
+
+.form-checkbox .checkbox input {
+    margin-right: 1rem;
+}
+
+.form-control label {
+    display: block;
+    margin: 0 0 0.3rem 0.3rem;
+    font-weight: 500;
+}
+
+.form-control input:active,
+.form-control input:focus {
+    transition: border 0.22s;
+    border: 2px solid #42b983;
+}
+
+.card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+
+.card.marked {
+    border: 4px solid #42b983;
+}
+
+.card.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.alert {
+    padding: 1rem 1.5rem;
+    border-left-width: .5rem;
+    border-left-style: solid;
+    margin: 1rem 0;
+    position: relative;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.alert.primary {
+    border-color: #42b983;
+    background-color: #f8f8f8;
+}
+
+.alert.danger {
+    border-color: #e53935;
+    background-color: #f8f8f8;
+}
+
+.alert.warning {
+    border-color: #c25205;
+    background-color: #f8f8f8;
+}
+
+.alert p {
+    color: #222;
+    line-height: 1.7;
+}
+
+.alert-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: -.4rem;
+    color: #222;
+}
+
+.modal {
+    position: fixed;
+    top: 60px;
+    width: 600px;
+    padding: 1rem;
+    background: #fff;
+    z-index: 1000;
+    left: 50%;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .35);
+}
+small{
+   color: #c25205
+}
+.invalid input{
+    border-color: #c25205  ;
+}
+</style>

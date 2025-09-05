@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, defineAsyncComponent } from 'vue';
 import ButtonTask3 from './components/Task3/ButtonTask3.vue';
 import Comp1Task4 from './components/Task4/Comp1Task4.vue';
 import Comp2Task4 from './components/Task4/Comp2Task4.vue';
