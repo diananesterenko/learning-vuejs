@@ -1,10 +1,10 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import Task3 from './Task3.vue'
+import Task4 from './Task4.vue'
 
 
-const app = createApp(Task3)
+const app = createApp(Task4)
 
 
 
