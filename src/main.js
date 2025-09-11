@@ -1,11 +1,13 @@
-import './assets/main.css'
+//import './assets/main.css'
 
 import { createApp } from 'vue'
-import Task7 from './Task7.vue'
+import Task8 from './Task8.vue'
+import router from './router/routertask8.js'
+import './assets/themeTask8.css'
 
 
-const app = createApp(Task7)
+const app = createApp(Task8)
 
-
-
+app.use(router)
 app.mount('#app')
+
