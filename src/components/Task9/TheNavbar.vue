@@ -6,10 +6,10 @@
 
     <ul class="navbar-menu">
       <li>
-        <router-link to="/">Все задачи</router-link>
+        <router-link to="/task9/tasks">Все задачи</router-link>
       </li>
       <li>
-        <router-link to="/new">Создать</router-link>
+        <router-link to="/task9/new">Создать</router-link>
       </li>
     </ul>
   </nav>

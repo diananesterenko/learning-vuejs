@@ -12,7 +12,7 @@
     </div>
 
     <button class="btn primary" type="submit">Войти</button>
-    <RouterLink to="/forget" >
+    <RouterLink to="/task8/forget" >
         <button class="btn warning">Забыл пароль?</button>
     </RouterLink>
   </form>

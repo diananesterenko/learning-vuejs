@@ -19,7 +19,7 @@ const increaseReadRate = (id) => {
   item.isRead = true
 }
 const unreadNews =computed(() => news.value.filter(n => !n.isRead))
-const provides= def
+// const provides= def
 </script>
 
 

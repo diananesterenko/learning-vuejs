@@ -23,7 +23,7 @@
 
 <script setup>
 import AppStatus from '@/components/Task9/AppStatus.vue';
-import router from '@/router/routerTask9';
+import router from '@/router/routerGlobal.js';
 import { storeToRefs } from 'pinia'
 import { useTaskStore } from '@/store/storeTask9.js'
 
@@ -35,6 +35,6 @@ const checkActive = () => {
   return tasks.value.filter(t => t.status === 'active' || t.status === 'in-progress').length
 }
 const goToTask = (id) => {
-  router.push(`/task/${id}`)
+  router.push(`/task9/task/${id}`)
 }
 </script>

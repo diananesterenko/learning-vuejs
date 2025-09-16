@@ -25,7 +25,7 @@
 import {  ref, computed } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import { useTaskStore } from '@/store/storeTask9.js'
-import router from '@/router/routerTask9';
+import router from '@/router/routerGlobal.js';
 
 const taskStore = useTaskStore()
 const {addTask} = taskStore
@@ -44,7 +44,7 @@ const submit = () => {
   title.value = ''
   date.value = ''
   description.value = ''
-  router.push('/')
+  router.push('/task9/tasks')
 }
 onBeforeRouteLeave((to, from, next) => {
   if (title.value !== '' || date.value !== '' || description.value !== '') {

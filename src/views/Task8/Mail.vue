@@ -3,13 +3,16 @@
     <div class="card-nav">
       <ul class="list">
         <li class="list-item" v-for="email in emails" :key="email.id">
-          <RouterLink :to="`/mail/${email.id}`">
+          <RouterLink :to="`/task8/mail/${email.id}`">
             {{email.theme}}
           </RouterLink>
         </li>
       </ul>
     </div>
     <div class="card-body">
+      <!-- <div>
+      <strong>Открой письмо </strong>
+      </div> -->
       <RouterView></RouterView>
     </div>
   </div>

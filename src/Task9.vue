@@ -9,6 +9,7 @@
 
 import TheNavbar from './components/Task9/TheNavbar.vue'
 import { RouterView } from 'vue-router';
+import './assets/themeTask9.css'
 
 </script>
 

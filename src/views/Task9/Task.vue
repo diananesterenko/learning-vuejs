@@ -34,7 +34,7 @@ const setStatus =(status) => {
     currentTask.value.status = status
     
   }
-  router.push(`/`)
+  router.push(`/task9/tasks`)
 
 }
 </script>

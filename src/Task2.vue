@@ -1,5 +1,5 @@
 <script setup>
-  
+ import './assets/main.css' 
 import { ref, reactive, watch, computed } from 'vue'
 const isFinished = computed(() => currentIndex.value === blocks.value.length - 1)
 const currentIndex = ref(0)
@@ -93,6 +93,6 @@ const goToStep = (idx) => {
 </template>
 
 
-<style lang="scss" scoped>
+<style  scoped>
 
 </style>
