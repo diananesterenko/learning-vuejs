@@ -4,7 +4,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/routerGlobal.js'
 
-// import './assets/themeTask9.css'
+import './assets/main.css'
 
 
 const app = createApp(App)

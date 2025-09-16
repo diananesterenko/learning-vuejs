@@ -94,5 +94,68 @@ const goToStep = (idx) => {
 
 
 <style  scoped>
+p, h1{
+  color: antiquewhite;
+}
+.buttons{
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.buttonItem{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.buttons .btn{
+  flex:1;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
 
+
+
+
+.btn {
+  border: none;
+  border-radius: 3px;
+  margin: auto 0;
+  padding: 0.5rem 0.75rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.1s ease-in;
+}
+
+.btn[disabled] {
+  background: #8795a1;
+}
+
+.btn[disabled]:hover {
+  background: #606f7b;
+}
+.btn-nav{
+  
+   padding: 14px 30px 14px 30px;
+  
+  margin-top: 15px;
+ font-size: 24px;
+ text-transform: uppercase;
+  border-radius: 40px;
+}
+.green{
+  background-color: #539255; 
+  color: white;
+}
+.done{
+  border-color: #021a04;
+  border-width: 3px;
+  border-style: solid;
+  color: #011c02;
+  opacity: 0.8;
+  
+}
 </style>

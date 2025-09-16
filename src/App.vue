@@ -44,10 +44,3 @@ const goToTask = (id) => {
   router.push(`/app/${id}`)
 }
 </script>
-<style >
-body {
-  background: #ffffff;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-</style>

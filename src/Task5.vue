@@ -8,7 +8,7 @@
         label="What is your name?" 
         placeholder="Enter your full name"/>
 
-      <div class="form-control">
+      <div class="form-control" :class="{ invalid: errors.age }">
         <label for="age">Choose your age</label>
         <input 
             v-model.number="age"
@@ -16,6 +16,7 @@
             id="age" 
             
             max="70">
+            <small v-if="errors.age">{{ errors.age }}</small>
       </div>
 
       <div class="form-control">
@@ -45,6 +46,7 @@
                     type="radio" 
                     name="trip"/> No</label>
         </div>
+        <small v-if="errors.readyToMove">{{ errors.readyToMove }}</small>
       </div>
 
       <div class="form-checkbox">
@@ -70,6 +72,7 @@
                     name="skills"
                     value="vue-router"/> Vue Router</label>
         </div>
+        <small v-if="errors.skills">{{ errors.skills }}</small>
       </div>
 
       <button type="submit" class="btn primary">Submit</button>
@@ -94,6 +97,15 @@ const errors=ref({
 })
 const handleSubmit = () => {
     if(formIsValid()) {
+        
+        alert(`Thank you,${name.value}. Submitting...`)
+        name.value = ''
+        age.value = 20
+        city.value = 'sthlm'
+        readyToMove.value = null
+        skills.value = []
+        
+       
         console.log(name.value, age.value, city.value, readyToMove.value, skills.value);
     } else {
         console.log('Form is not valid')
@@ -101,13 +113,36 @@ const handleSubmit = () => {
   
 }
 const formIsValid = () => {
-    let isValid= true
-    if(name.value.length === 0) {
+    let isValid = true
+    errors.value.name = null
+    errors.value.age = null
+    errors.value.readyToMove = null
+    errors.value.skills = null
+
+    // Проверка имени
+    if (name.value.trim().length === 0) {
         errors.value.name = 'Name is required'
         isValid = false
-    } else {
-        errors.value.name = null
     }
+
+    // Проверка возраста
+    if (age.value < 18 || age.value > 70) {
+        errors.value.age = 'Age must be between 18 and 70'
+        isValid = false
+    }
+
+    // Проверка радиобатона
+    if (!readyToMove.value) {
+        errors.value.readyToMove = 'Please select Yes or No'
+        isValid = false
+    }
+
+    // Проверка чекбоксов
+    if (!skills.value.length) {
+        errors.value.skills = 'Select at least one skill'
+        isValid = false
+    }
+
     return isValid
 }
 </script>

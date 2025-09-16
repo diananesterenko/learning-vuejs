@@ -42,7 +42,9 @@ const twoColor=computed(() => active.value === 'two' ? 'readbtn' : '');
     border-radius: 15px;
     font-size: 15px;
 }
-
+h1,h2,p{
+    color: antiquewhite;
+}
 .readbtn{
     background-color: #4e9568;
     color: white;

@@ -135,7 +135,7 @@ p {
   align-items: center;
   line-height: 1.75;
   letter-spacing: 0.5px;
-  color: #3d4852;
+  color: #ffffff;
   font-size: 1.25rem;
   cursor: pointer;
   transition: all 0.1s ease-in;
@@ -183,17 +183,6 @@ li input {
   margin: 0.5rem 0;
 }
 
-.btn {
-  border: none;
-  border-radius: 3px;
-  margin: auto 0;
-  padding: 0.5rem 0.75rem;
-  flex-shrink: 0;
-  cursor: pointer;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  transition: all 0.1s ease-in;
-}
 
 .btn[disabled] {
   background: #8795a1;
@@ -203,32 +192,13 @@ li input {
   background: #606f7b;
 }
 
-.btn-primary {
-  background: #6cb2eb;
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: #3490dc;
-}
-
-.btn-cancel {
-  background: #ef5753;
-  color: #fff;
-}
-
-.btn-cancel:hover {
-  background: #e3342f;
-  color: #fff;
-}
-
 .strikeout {
   text-decoration: line-through;
-  color: #b8c2cc;
+  color: #a3a3a3;
 }
 
 .strikeout:hover {
-  color: #8795a1;
+  color: #454545;
 }
 
 .priority {
@@ -238,5 +208,8 @@ input[type="checkbox"]{
   display: inline !important;
   box-shadow: none;
   width: auto;
+}
+label{
+  color: #d68238;
 }
 </style>
